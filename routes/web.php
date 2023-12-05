@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +22,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/new-topic', function () {
     return view('cliente.new-topic');
 });
@@ -29,18 +32,19 @@ Route::get('/c-overview', function () {
 Route::get('/topic', function () {
     return view('cliente.topic');
 });
-route::get('dashboard/home', 'App\Http\Controllers\DashboardController@home');
+route::get('dashboard/home', [DashboardController::class,'home']);
 
-route::get('dashboard/category/new', 'App\Http\Controllers\CategoryController@create')->name('category.new');
-route::post('dashboard/category/new', 'App\Http\Controllers\CategoryController@store')->name('category.store');
-route::get('dashboard/categories', 'App\Http\Controllers\CategoryController@index')->name('categories');
-route::get('dashboard/categories/{id}', 'App\Http\Controllers\CategoryController@show')->name('category');
-route::get('dashboard/categories/edit/{id}', 'App\Http\Controllers\CategoryController@edit')->name('category.edit');
-route::post('dashboard/categories/edit/{id}', 'App\Http\Controllers\CategoryController@update')->name('category.update');
-route::get('dashboard/categories/delete/{id}', 'App\Http\Controllers\CategoryController@destroy')->name('category.destroy');
-
+route::get('dashboard/category/new', [CategoryController::class,'create'])->name('category.new');
+route::post('dashboard/category/new',[CategoryController::class,'store'])->name('category.store');
+route::get('dashboard/categories', [CategoryController::class,'index'])->name('categories');
+route::get('dashboard/categories/{id}', [CategoryController::class,'show'])->name('category');
+route::get('dashboard/categories/edit/{id}', [CategoryController::class,'edit'])->name('category.edit');
+route::post('dashboard/categories/edit/{id}', [CategoryController::class,'update'])->name('category.update');
+route::get('dashboard/categories/delete/{id}', [CategoryController::class,'destroy'])->name('category.destroy');
 
 //forum
+
+route::get('dashboard/forum/new', [CategoryController::class,'destroy'])->name('forum.new');
 
 
 

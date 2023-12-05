@@ -64,6 +64,7 @@
                       </a>
             <ul class="sub">
               <li><a class="" href="{{route('category.new')}}">Criar categoria</a></li>
+              <li><a class="" href="{{route('forum.new')}}">Criar forum</a></li>
   
               
             </ul>
