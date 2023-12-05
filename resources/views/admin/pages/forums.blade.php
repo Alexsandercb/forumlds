@@ -49,7 +49,7 @@
                                 <td>{{ $forum->category->title }}</td>
                                 <td>{!!$forum->desc!!}</td>
                                 <td><a href="{{route('forum',$forum->id)}}"><i class="fa fa-eye text-success"></i></a></td>
-                                <td><a href="{{route('forum.update',$forum->id)}}"><i class="fa fa-edit text-info"></i></a></td>
+                                <td><a href="{{route('forum.edit',$forum->id)}}"><i class="fa fa-edit text-info"></i></a></td>
                                 <td><a href="{{route('forum.destroy',$forum->id)}}" class="text-danger"><i class="fa fa-trash"></i>Delete</a></td>
 
                                

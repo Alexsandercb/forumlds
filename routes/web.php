@@ -46,11 +46,13 @@ route::get('dashboard/categories/delete/{id}', [CategoryController::class,'destr
 //forum
 
 route::get('dashboard/forum/new', [ForumController::class,'create'])->name('forum.new');
-
 route::post('dashboard/forum/new', [ForumController::class,'store'])->name('forum.store');
-
 route::get('dashboard/forums', [ForumController::class,'index'])->name('forums');
 
+route::get('dashboard/forums/{id}', [ForumController::class,'edit'])->name('forum');
+route::get('dashboard/forums/edit/{id}', [ForumController::class,'edit'])->name('forum.edit');
+route::post('dashboard/forums/update/{id}', [ForumController::class,'update'])->name('forum.update');
+route::get('dashboard/forums/delete/{id}', [ForumController::class,'destroy'])->name('forum.destroy');
 
 
 

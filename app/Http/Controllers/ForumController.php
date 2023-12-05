@@ -29,4 +29,29 @@ class ForumController extends Controller
         Session::flash('alert-class', 'alert-success');
         return back();
     }
+
+    public function edit($id){
+        $forum = Forum::find($id);
+        $categories = Category::latest()->get();
+
+        return view('admin.pages.edit_forum', compact('forum','categories'));
+    }
+
+    public function update(Request $request, $id){
+        $forum = Forum::find($id);
+        $forum->update($request->all());
+        Session::flash('message', 'forum atualizado com sucesso');
+        Session::flash('alert-class', 'alert-success');
+        return back();
+    }
+
+    public function destroy($id){
+        $forum = Forum::find($id);
+        $forum->delete();
+        Session::flash('message', 'forum apagado com sucesso');
+        Session::flash('alert-class', 'alert-success');
+        return back();
+    }
+    
+    
 }
