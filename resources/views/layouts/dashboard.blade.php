@@ -71,15 +71,21 @@
           </li>
          <li>
             <a class="" href="/dashboard/users">
-                          <i class="fa fa-users"></i>
-                          <span>Usuario</span>
-                      </a>
+                <i class="fa fa-users"></i>
+                <span>Usuario</span>
+            </a>
           </li>
           <li>
-          <a class="" href="{{route('categories')}}">
-                          <i class="fa fa-file-text"></i>
-                          <span>Categorias</span>
-                      </a>
+            <a class="" href="{{route('categories')}}">
+                <i class="fa fa-list-alt"></i>
+                <span>Categorias</span>
+            </a>
+          </li>
+          <li>
+            <a class="" href="{{route('forums')}}">
+                <i class="fa fa-users"></i>
+                <span>Forums</span>
+            </a>
           </li>
         
 

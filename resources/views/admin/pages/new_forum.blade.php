@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
         <section class="wrapper">
           <div class="row">
             <div class="col-lg-12">
-              <h3 class="page-header"><i class="fa fa-edit"></i>Add nova Forum</h3>
+              <h3 class="page-header"><i class="fa fa-edit"></i>Add novo Forum</h3>
               <ol class="breadcrumb">
                 <li><i class="fa fa-home"></i><a href="/dashboard/home">Home</a></li>
                 <li><i class="fa fa-question"></i>Forum</li>
@@ -37,11 +37,11 @@ use Illuminate\Support\Facades\Session;
       
       @endif
       <form class="form-horizontal" method="POST" action="{{
-      route('category.store')}}" enctype="multipart/form-data">
+      route('forum.store')}}" enctype="multipart/form-data">
           @csrf
       
         <div class="form-group">
-          <label class="col-lg-2 control-label">Titutlo do Post</label>
+          <label class="col-lg-2 control-label">Titutlo do Forum</label>
           <div class="col-lg-10">
           <input name="title" class="form-control" value=""/>
           </div>
@@ -51,24 +51,30 @@ use Illuminate\Support\Facades\Session;
         @enderror
 
         <div class="form-group">
-            <label class="col-lg-2 control-label">Imagem</label>
+            <label class="col-lg-2 control-label">Categoria do forum</label>
             <div class="col-lg-10">
-            <input type="file" name="image" class="form-control" />
+              <select name="category_id" class="form-control">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}"> {{ $category->title }}  </option>
+                @endforeach
+              </select>
             </div>
           </div>
           
-          @error('image')
+          @error('category_id')
           <p class="alert alert-danger"> {{$message}}</p>
         @enderror
     
         <div class="form-group">
-          <label class="col-lg-2 control-label">Descrição</label>
+          <label class="col-lg-2 control-label">Descrição forum</label>
           <div class="col-lg-10">
           <textarea name="desc" id="editor1" class="form-control" cols="30" rows="5"></textarea>
           </div>
         </div>
       
-          @error('desc')
+        <input type="number" value="{{ auth()->id() }}" name="user_id" hidden/>
+
+        @error('desc')
           <p class="alert alert-danger"> {{$message}}</p>
         @enderror
 
@@ -77,7 +83,7 @@ use Illuminate\Support\Facades\Session;
 
         <div class="form-group">
           <div class="col-lg-offset-2 col-lg-10">
-            <button type="submit" class="btn btn-success">Add</button>
+            <button type="submit" class="btn btn-success">Add Forum</button>
             <a href="/dashboard/home" class="btn btn-danger">Cancel</a>
           </div>
         </div>

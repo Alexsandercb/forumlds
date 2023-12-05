@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ForumController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,11 @@ route::get('dashboard/categories/delete/{id}', [CategoryController::class,'destr
 
 //forum
 
-route::get('dashboard/forum/new', [CategoryController::class,'destroy'])->name('forum.new');
+route::get('dashboard/forum/new', [ForumController::class,'create'])->name('forum.new');
+
+route::post('dashboard/forum/new', [ForumController::class,'store'])->name('forum.store');
+
+route::get('dashboard/forums', [ForumController::class,'index'])->name('forums');
 
 
 
