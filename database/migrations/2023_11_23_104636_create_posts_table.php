@@ -19,8 +19,8 @@ class CreatePostsTable extends Migration
             $table->integer('is_deleted');
             $table->integer('is_approved');
             $table->string('image');
-            $table->unsignedBigInteger('forum_id');
-            $table->foreign('forum_id')->references('id')->on('forums')->onDelete('cascade');
+            $table->unsignedBigInteger('discussion_id');
+            $table->foreign('discussion_id')->references('id')->on('discussions')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('slug');
