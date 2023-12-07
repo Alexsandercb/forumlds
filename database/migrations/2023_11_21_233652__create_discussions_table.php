@@ -22,11 +22,12 @@ class CreateDiscussionsTable extends Migration
             Schema::create('discussions', function (Blueprint $table) {
                 $table->id();
                 $table->string('title');
-                $table->string('desc');
+                $table->longText('desc');
                 $table->unsignedBigInteger('forum_id');
                 $table->foreign('forum_id')->references('id')->on('forums')->onDelete('cascade');
                 $table->integer('is_deleted')->default(0);
                 $table->string('image')->nullable();
+                $table->integer('views')->deafult(0);
                 $table->string('notify')->default(0);
                 $table->unsignedBigInteger('user_id');
                 $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

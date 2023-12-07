@@ -11,7 +11,7 @@ class FrontendController extends Controller
 {
     public function index () {
 
-        $categories = Category::with('forum.discussions')->get();
+        $categories = Category::with('forums')->get();
         return view ('welcome', \compact('categories'));
 
     }

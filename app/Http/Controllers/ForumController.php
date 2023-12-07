@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Models\Forum; 
-use App\Models\category;
+use App\Models\Category;
 
 class ForumController extends Controller
 {

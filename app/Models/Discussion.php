@@ -13,4 +13,12 @@ class Discussion extends Model
         return $this->belongTo('App\Models\Forum', 'foreing_key', 'forum_id');
         
     }
+
+    public function user(){
+        return $this->belongTo('App\Models\User');
+    }
+
+    public function replies(){
+        return $this->hasMany('App\Models\DiscussionReply');
+    }
 }

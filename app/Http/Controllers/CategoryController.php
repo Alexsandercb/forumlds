@@ -57,7 +57,7 @@ class CategoryController extends Controller
         $category->desc = $request->desc;
         $category->user_id = 1; //auth()->id();
         $category->image = $new_name;
-       // dd($category);
+       // dd($category);id
         $category->save();
         Session::flash('message', 'Publicação feita com sucesso');
         Session::flash('alert-class', 'alert-success');
