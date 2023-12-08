@@ -55,7 +55,7 @@ class CategoryController extends Controller
         $category = new Category;
         $category->title = $request->title;
         $category->desc = $request->desc;
-        $category->user_id = 1; //auth()->id();
+        $category->user_id = auth()->id(); //auth()->id();
         $category->image = $new_name;
        // dd($category);id
         $category->save();
